@@ -14,16 +14,21 @@
 		  
 </head>
 <body style="background-color:#f5f5f5; text-decoration: none; text-align: center;">
-	
-	<br/><br/><br/><br/><br/>
-	<span class="display-1"><span style="color:grey;">S</span><span style="color:red;">A</span><span style="color:grey;">RU</span></span><h1> HOSPITAL</h1>
-	<br/><br/><br/>
-			
-	<form action="login.html" method="post">
-		<button type="submit" class="btn btn-primary">&nbsp;&nbsp; Login &nbsp;&nbsp;</button>
-	</form><br/><br/><br/><br/><br/><br/><br/>
 
-	</div>
-	
+<br/><br/><br/><br/><br/>
+<span class="display-1"><span style="color:grey;">S</span><span style="color:red;">C</span><span style="color:grey;">UT</span></span><h1> HOSPITAL</h1>
+<br/><br/><br/>
+<form action="login.html" method="post">
+	<button type="submit" class="btn btn-primary">&nbsp;&nbsp; Login &nbsp;&nbsp;</button>
+</form>
+<br/>
+
+<form action="register.html" method="post">
+	<button type="submit" class="btn btn-danger">&nbsp;&nbsp; Register &nbsp;&nbsp;</button>
+</form>
+<br/><br/><br/><br/><br/><br/><br/>
+
+</div>
+
 </body>
 </html>

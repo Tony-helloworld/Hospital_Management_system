@@ -33,7 +33,7 @@
 		<!-- header -->
 		<div class="row">
 			<div class="col-sm-5">
-			<h1><span style="color:grey;">S</span><span style="color:red;">A</span><span style="color:grey;">RU</span> HOSPITAL</h1>
+			<h1><span style="color:grey;">S</span><span style="color:red;">C</span><span style="color:grey;">UT</span> HOSPITAL</h1>
 			</div>
 			<div class="col-sm-7">
 			<p><b>Dr. Sachine Kautikrao Deore</b><br/> MBBS, DNB(Gen. Surgeon), MS, MNAMS, FMAS, FIAGES, FALS, AFIH</p>
@@ -133,15 +133,14 @@
 			<div class="col-sm-1"></div>
 			</div>
 	</div>
-			<div>
-				<small>*or other cheaper generic medicines of same contents, as per choice of patients. No compulsion of particular brand.</small>
-				<hr/>
-				Our Centers:<br/>
-			    1. Saru Hospital, Mumbai Naka, Matoshree Nagar, Nashik, Maharashtra 422002 |
-			    2. NIIMS Multispeciality Hospital, Gangapur road, Thatte Nagar, Nashik, Maharashtra 422005<br/>
-			    Mobile No. 8087030000 | Phone No. 0253-2575151 | E-mail: drsachinkdeore@gmail.com	
-			</div>	
-	
+		<div>
+			<small>*or other cheaper generic medicines of same contents, as per choice of patients. No compulsion of particular brand.</small>
+			<hr/>
+			Our Centers:<br/>
+			1. SCUT Hospital, Wushan road, GuangZhou,China 510000 |
+			2. SCUT Hospital, XiaoGuWei road, GuangZhou,China 510000 <br/>
+			Mobile No. 8087030000 | Phone No. 020-2575151 | E-mail: SCUT@gmail.com
+		</div>
 	</div><br/><br/>		    	
 </body>
 </html>
