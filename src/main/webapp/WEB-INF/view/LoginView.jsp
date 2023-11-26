@@ -114,6 +114,7 @@
 	        <option value="doctor">Doctor</option>
 	        <option value="receptionist">Receptionist</option>
 	        <option value="administrator">Administrator</option>
+			<option value="patient">Patient</option>
 	      </select>
 	    </div>
 

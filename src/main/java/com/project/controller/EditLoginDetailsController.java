@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.project.dao.EditLoginDetailsDao;
 import com.project.entity.Login;
+import com.project.entity.Register;
 import com.project.dao.LoginDao;
 
 
@@ -23,7 +24,7 @@ public class EditLoginDetailsController
 	
 	@Autowired
 	LoginDao infoLog;
-	 
+
 	@RequestMapping(value="/editView.html")
 	public ModelAndView editLoginView()
 	{
@@ -79,4 +80,5 @@ public class EditLoginDetailsController
 			} 
 			
 	}
+
 }

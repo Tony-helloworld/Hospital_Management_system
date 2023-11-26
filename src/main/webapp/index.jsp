@@ -24,7 +24,7 @@
 <br/>
 
 <form action="register.html" method="post">
-	<button type="submit" class="btn btn-danger">&nbsp;&nbsp; Register &nbsp;&nbsp;</button>
+	<button type="submit" class="btn btn-danger">&nbsp; Register &nbsp;&nbsp;</button>
 </form>
 <br/><br/><br/><br/><br/><br/><br/>
 
