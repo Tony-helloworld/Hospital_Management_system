@@ -3,7 +3,8 @@ package com.project.controller.patient;
 import com.project.dao.LoginDao;
 import com.project.dao.doctor.PatientHistoryDao;
 import com.project.dao.opd.DeleteOpdDao;
-import com.project.dao.receptionist.PatientPrescriptionDao;
+import com.project.dao.patient.PPatientPrescriptionDao;
+import com.project.entity.Login;
 import com.project.entity.OpdDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,13 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
 public class PPatientPrescriptionController
 {
 	@Autowired
-	PatientPrescriptionDao dao;
+	PPatientPrescriptionDao dao;
 	
 	@Autowired
 	DeleteOpdDao dao1;
@@ -29,20 +32,22 @@ public class PPatientPrescriptionController
 	@Autowired
 	LoginDao infoLog;
 	
-	@RequestMapping(value="/1prescriptionQueueView.html")
-	public ModelAndView prescriptionQueue()
+	@RequestMapping(value="/prescriptionView.html")
+	public ModelAndView prescriptionQueue(HttpServletRequest request)
 	{	
 		try {
+			HttpSession session= request.getSession();
+			Login l=(Login)session.getAttribute("userInfo");
 			infoLog.logActivities("in PatientPrescriptionController-prescriptionQueue:");
 			
-			List<String[]> prescriptionList= dao.getPrescriptionList();
+			List<String[]> prescriptionList= dao.getPrescriptionList(l.getId());
 			
 			if(! prescriptionList.equals(null))
 			{
 				ModelAndView mv= new ModelAndView();
-				mv.setViewName("receptionist/PrescriptionQueueView");
+				mv.setViewName("patient/PrescriptionView");
 				mv.addObject("prescriptionList", prescriptionList);
-				mv.addObject("prescriptionsCount", dao.prescriptionPrintCount());  //for receptionist only
+				mv.addObject("prescriptionsCount", dao.prescriptionPrintCount2(l.getId()));  //for receptionist only
 				return mv;
 			}
 			else
@@ -65,11 +70,16 @@ public class PPatientPrescriptionController
 		{
 			infoLog.logActivities("in PatientPrescriptionController-print: got="+pid+" "+opdid);
 			int opdId=Integer.parseInt(opdid);
-			
+//			System.out.println(opdId);
+//			System.out.println(pid);
 			String name=dao.getPatientName(pid);
+//			System.out.println(name);
 			infoLog.logActivities("returned to PatientPrescriptionController-print: got="+name);
-			
+//			System.out.println("------------------------------------------");
 			OpdDetails data=dao2.showHistory(opdId);
+
+			System.out.println(data);
+
 			infoLog.logActivities("returned to PatientPrescriptionController-print: got="+data);
 			
 			if( (! name.equals(null)) && (data.getOpdid()!=0 ) )
@@ -85,6 +95,7 @@ public class PPatientPrescriptionController
 		}
 		catch(Exception e)
 		{
+			System.out.println(e);
 			infoLog.logActivities("in PatientPrescriptionController-print: "+e);
 			ModelAndView mv= new ModelAndView();
 			mv.setViewName("failure");
@@ -106,7 +117,7 @@ public class PPatientPrescriptionController
 			
 			if(i==1)
 			{
-				List<String[]> prescriptions= dao.getPrescriptionList();
+				List<String[]> prescriptions= dao.getPrescriptionList("1");
 				int count=dao.prescriptionPrintCount();
 				
 				if(! prescriptions.equals(null))

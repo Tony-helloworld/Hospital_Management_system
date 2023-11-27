@@ -85,14 +85,14 @@
             </div>
         </div>
 
-            <br/><br/><br/>
-            <form action="login.html" method="post">
-                <button type="submit" class="btn btn-primary">&nbsp;&nbsp; Login &nbsp;&nbsp;</button>
-            </form>
         </div>
+
     </div>
 </div>
-
+</p><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<form action="login.html" method="post">
+    <button type="submit" class="btn btn-primary">&nbsp;&nbsp; Login &nbsp;&nbsp;</button>
+</form>
 </body>
 </html>
 <body>

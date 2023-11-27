@@ -54,7 +54,7 @@
 		 	<% OpdDetails prescription= (OpdDetails)request.getAttribute("prescription"); %>
 		 		<div class="row">
 		 			<div class="col-sm-10"><b>Name:</b> <%=pname %> </div>
-		 			<div class="col-sm-2"><span style="text-align:right; color:blue;"><%= prescription.getOpdid() %></span></div>
+<%--		 			<div class="col-sm-2"><span style="text-align:right; color:blue;"><%= prescription.getOpdid() %></span></div>--%>
 		 		</div>		 		
 		 		<br/><br/>
 		 		<b>Rx</b>
