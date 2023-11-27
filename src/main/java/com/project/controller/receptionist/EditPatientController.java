@@ -17,6 +17,9 @@ import com.project.entity.Address;
 import com.project.entity.Name;
 import com.project.entity.Patient;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller 
 public class EditPatientController 
 {
@@ -52,7 +55,9 @@ public class EditPatientController
 					mv.addObject("patient",temp);
 					mv.addObject("doctor",doctorname);
 					mv.addObject("doctorsList", dao4.getDoctors());
-					mv.addObject("prescriptionsCount", dao5.prescriptionPrintCount());  //for receptionist only
+					mv.addObject("prescriptionsCount", dao5.prescriptionPrintCount2(pid));  //for receptionist only
+//					mv.addObject("prescriptionsCount", dao5.prescriptionPrintCount());  //for receptionist only
+
 					return mv;
 				}
 				else
@@ -70,13 +75,15 @@ public class EditPatientController
 	}
 
 	@RequestMapping(value="/editPatient.html", method = RequestMethod.POST)
-	public ModelAndView edit(@RequestParam("pid")String pid, @RequestParam("firstName")String firstName, @RequestParam("middleName")String middleName, @RequestParam("lastName")String lastName, @RequestParam("birthdate")String birthdate, @RequestParam("gender")String gender, @RequestParam("email")String email, @RequestParam("mobileNo")Long mobileNo, @RequestParam("adharNo")Long adharNo, @RequestParam("country")String country, @RequestParam("state")String state, @RequestParam("city")String city, @RequestParam("residentialAddress")String residentialAddress, @RequestParam("permanentAddress")String permanentAddress, @RequestParam("bloodGroup")String bloodGroup, @RequestParam("chronicDiseases")String chronicDiseases, @RequestParam("medicineAllergy")String medicineAllergy, @RequestParam("doctorId")String doctorId)
+	public ModelAndView edit(@RequestParam("pid")String pid, @RequestParam("firstName")String firstName, @RequestParam("middleName")String middleName, @RequestParam("lastName")String lastName, @RequestParam("birthdate")String birthdate, @RequestParam("gender")String gender, @RequestParam("email")String email, @RequestParam("mobileNo")Long mobileNo, @RequestParam("adharNo")Long adharNo, @RequestParam("country")String country, @RequestParam("state")String state, @RequestParam("city")String city, @RequestParam("residentialAddress")String residentialAddress, @RequestParam("permanentAddress")String permanentAddress, @RequestParam("bloodGroup")String bloodGroup, @RequestParam("chronicDiseases")String chronicDiseases, @RequestParam("medicineAllergy")String medicineAllergy, @RequestParam("doctorId")String doctorId, HttpServletRequest request)
 	{
 		try {
 			Name n1=new Name(firstName,middleName,lastName);
 			Address a1= new Address(residentialAddress, permanentAddress);
 			infoLog.logActivities("in EditPatientController-edit: got= "+pid+" "+n1+" "+birthdate+" "+gender+" "+email+" "+mobileNo+" "+adharNo+" "+country+" "+state+" "+city+" "+a1+" "+bloodGroup+" "+chronicDiseases+" "+medicineAllergy+" "+doctorId);
-			
+			String n2 = firstName+middleName+lastName;
+			HttpSession session= request.getSession();
+			session.setAttribute("Name", n2);
 			int i=dao2.edit(pid,n1,birthdate,gender,email,mobileNo,adharNo,country,state,city,a1,bloodGroup,chronicDiseases,medicineAllergy,doctorId);
 			infoLog.logActivities("returned to EditPatientController-edit: got= "+i);
 			
@@ -84,7 +91,8 @@ public class EditPatientController
 				{
 					ModelAndView mv= new ModelAndView();
 					mv.setViewName("successPage");
-					mv.addObject("prescriptionsCount", dao5.prescriptionPrintCount());  //for receptionist only
+
+					mv.addObject("prescriptionsCount", dao5.prescriptionPrintCount2(pid));  //for receptionist only
 					return mv;
 				}
 				else

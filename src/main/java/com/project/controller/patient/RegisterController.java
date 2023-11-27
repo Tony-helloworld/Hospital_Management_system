@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import com.project.controller.opd.AddOpdController;
+import com.project.dao.opd.AddOpdDao;
 import com.project.dao.patient.RegisterDao;
 import com.project.dao.receptionist.AddPatientDao;
 import com.project.dao.receptionist.PatientPrescriptionDao;
@@ -16,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
+import com.project.controller.opd.AddOpdController;
 import com.project.dao.LoginDao;
 import com.project.dao.administrator.AddEmployeeDao;
 
@@ -47,6 +50,7 @@ public class RegisterController
 
     @Autowired
     PatientPrescriptionDao dao1;
+
 
     @Autowired
     LoginDao infoLog;
@@ -99,15 +103,16 @@ public class RegisterController
 
             Patient p1= new Patient(n1,birthdate,gender,email,mobileNo,adharNo,country,state,city,a1,bloodGroup,chronicDiseases,medicineAllergy,doctorId);
 
-            boolean b=dao.add(p1);
+            String b=dao.add(p1);
 //            Login l=new Login(userId,l1.getRole(),l1.getUsername(),null);
             HttpSession session= request.getSession();
             session.setAttribute("Name", n2);
             infoLog.logActivities("returned to AddPatientController-add: got= "+b);
-            if(b)
+            if(b!=null)
             {
                 ModelAndView mv= new ModelAndView();
 //                mv.addObject("prescriptionsCount", dao1.prescriptionPrintCount());  //for receptionist only
+                mv.addObject("prescriptionsCount",dao1.prescriptionPrintCount2(b));
                 mv.setViewName("successRegisterPage");
                 return mv;
             }

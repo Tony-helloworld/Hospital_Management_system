@@ -63,6 +63,17 @@
             <%@ page import="com.project.entity.Patient" %>
             <% String Name = session.getAttribute("Name").toString();	 %>
 
+<%--            <a href="patientInfo.html">--%>
+<%--                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info--%>
+<%--            </a>--%>
+<%--            <a href="selectDoctor.html">--%>
+<%--                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select Doctor--%>
+<%--            </a>--%>
+<%--            <a href="prescriptionQueueView.html">--%>
+<%--                <% String count=""+request.getAttribute("prescriptionsCount"); %>--%>
+<%--                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prescriptions--%>
+<%--                <span class="badge badge-pill badge-danger"><%=count %></span>--%>
+<%--            </a>--%>
 
         <div class="col-sm-12">
             <!-- display window -->
@@ -78,6 +89,7 @@
             <form action="login.html" method="post">
                 <button type="submit" class="btn btn-primary">&nbsp;&nbsp; Login &nbsp;&nbsp;</button>
             </form>
+        </div>
     </div>
 </div>
 

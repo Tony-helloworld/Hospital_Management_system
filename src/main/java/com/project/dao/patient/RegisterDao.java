@@ -69,7 +69,7 @@ public class RegisterDao
 
     //to manage transaction by itself
     @Transactional
-    public boolean add(Patient p1)
+    public String add(Patient p1)
     {
         try
         {
@@ -110,12 +110,12 @@ public class RegisterDao
             infoLog.logActivities(""+l);
             session.save(l);
 
-            return true;
+            return id;
         }
         catch(Exception ex)
         {
             infoLog.logActivities("in AddEmployeeDao-add: "+ex);
-            return false;
+            return null;
         }
     }
 }

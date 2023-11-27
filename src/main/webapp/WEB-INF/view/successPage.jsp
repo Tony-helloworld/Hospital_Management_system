@@ -72,13 +72,16 @@ body {
 			    	</a>
 				</div>
 				</a><br/>
-				
-		<% if(!l.getId().equals("EMP100")){ %>
+
+<%--		<% if(!l.getId().equals("EMP100")){ %>--%>
+<%--				<a href="personalInfo.html">--%>
+<%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info--%>
+<%--				</a>--%>
+<%--		<%} %>--%>
+		<% if(l.getRole().equals("administrator")){ %>
 				<a href="personalInfo.html">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info
 				</a>
-		<%} %>
-		<% if(l.getRole().equals("administrator")){ %>
 			    <a href="addEmployeeView.html">
 			    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Employee
 			    </a>
@@ -91,6 +94,9 @@ body {
 		<%} %>
 		
 		<% if(l.getRole().equals("receptionist")){ %>
+				<a href="personalInfo.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info
+				</a>
 				<a href="addPatientView.html">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Patient
 				</a>
@@ -106,8 +112,24 @@ body {
 					<span class="badge badge-pill badge-danger"><%=count %></span>
 				</a>
 		<%} %>
-		
+
+				<% if(l.getRole().equals("patient")){ %>
+				<a href="patientInfo.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info
+				</a>
+<%--				<a href="selectDoctor.html">--%>
+<%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select Doctor--%>
+<%--				</a>--%>
+				<a href="prescriptionQueueView.html">
+					<% String count=""+request.getAttribute("prescriptionsCount"); %>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prescriptions
+					<span class="badge badge-pill badge-danger"><%=count %></span>
+				</a>
+				<%} %>
 		<% if(l.getRole().equals("doctor")){ %>
+				<a href="personalInfo.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info
+				</a>
 				<a href="opdQueueD.html">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OPD Queue
 				</a>

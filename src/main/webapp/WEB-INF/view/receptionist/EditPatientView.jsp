@@ -73,11 +73,11 @@ body {
 				</div>
 				</a><br/>
 				
-		<% if(!l.getId().equals("EMP100")){ %>
-				<a href="personalInfo.html">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info
-				</a>
-		<%} %>
+<%--		<% if(!l.getId().equals("EMP100")){ %>--%>
+<%--				<a href="personalInfo.html">--%>
+<%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info--%>
+<%--				</a>--%>
+<%--		<%} %>--%>
 				
 		<% if(l.getRole().equals("receptionist")){ %>
 				<a href="addPatientView.html">
@@ -95,7 +95,19 @@ body {
 					<span class="badge badge-pill badge-danger"><%=count %></span>
 				</a>
 		<%} %>
-		
+				<% if(l.getRole().equals("patient")){ %>
+				<a href="patientInfo.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info
+				</a>
+<%--				<a href="selectDoctor.html">--%>
+<%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select Doctor--%>
+<%--				</a>--%>
+				<a href="prescriptionQueueView.html">
+					<% String count=""+request.getAttribute("prescriptionsCount"); %>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prescriptions
+					<span class="badge badge-pill badge-danger"><%=count %></span>
+				</a>
+				<%} %>
 			</div>
 	    </div>
 	    
@@ -211,7 +223,7 @@ body {
 					        <% List<String[]> d=(List<String[]>) request.getAttribute("doctorsList"); 
 					           for(String[] str: d)
 					           { %>
-					           <option value="<%= str[0] %>"><%= str[1]+" "+str[2]+" "+str[3] %></option>
+					           <option value="<%= str[0] %>"><%= str[1]+" "+str[2]+" "+str[3]+" "+str[4] %></option>
 					         <%} %>
 					        </select>
 				        </div>
