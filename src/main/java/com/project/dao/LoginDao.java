@@ -31,14 +31,20 @@ public class LoginDao
 			Query q1=session.createQuery("from Login where role= :r AND username= :u");
 			q1.setParameter("r", l.getRole());
 			q1.setParameter("u", l.getUsername());
-		
+//			System.out.println(l.getPassword() );
+
 			Login temp= (Login) q1.uniqueResult();
-			boolean validUser=BCrypt.checkpw(l.getPassword(),temp.getPassword());
+			boolean validUser = l.getPassword().equals(temp.getPassword()) ;
+//			System.out.println(l.getPassword() );
+//			System.out.println(temp.getPassword() );
+			System.out.println(temp);
+//			boolean validUser=BCrypt.checkpw(l.getPassword(),temp.getPassword());
 			infoLog.logActivities("in logindao-validate:found= "+"i/p="+l.getPassword()+", db="+temp.getPassword()+", match= "+validUser);
 			if(!validUser)
 			{ 
 				throw new Exception("Password didn't matched"); 
 			}
+			System.out.println(temp.getId());
 			return temp.getId();
 		}
 		catch(Exception e)

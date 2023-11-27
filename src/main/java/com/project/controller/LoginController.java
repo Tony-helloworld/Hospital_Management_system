@@ -54,8 +54,9 @@ public class LoginController
 			//validation code
 			dao.logActivities("in LoginController-validate:got= "+role+" "+username+" "+password);
 			Login l1=new Login(null,role, username, password);
-			
-			String userId=dao.validate(l1);	//call to LoginDao
+//			System.out.println("我");
+			String userId = dao.validate(l1);	//call to LoginDao
+//			System.out.println(userId);
 			dao.logActivities("returned to logincontroller-validate:got= "+userId);
 
 				if (!userId.equals(null))
