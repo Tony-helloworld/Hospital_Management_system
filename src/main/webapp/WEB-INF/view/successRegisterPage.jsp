@@ -69,7 +69,7 @@
 <%--            <a href="selectDoctor.html">--%>
 <%--                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select Doctor--%>
 <%--            </a>--%>
-<%--            <a href="prescriptionQueueView.html">--%>
+<%--            <a href="">--%>
 <%--                <% String count=""+request.getAttribute("prescriptionsCount"); %>--%>
 <%--                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prescriptions--%>
 <%--                <span class="badge badge-pill badge-danger"><%=count %></span>--%>
