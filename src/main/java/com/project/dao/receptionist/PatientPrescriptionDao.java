@@ -52,7 +52,34 @@ public class PatientPrescriptionDao
 			return 0;
 		}
 	}
+	@Transactional
+	public int prescriptionPrintCount2(String userid)
+	{
 
+		try
+		{
+			infoLog.logActivities("in PatientPrescriptionDao-prescriptionPrintCount:");
+			Session session= sf.getCurrentSession();
+			Query q1=session.createQuery("from Opd where pid= :p  AND status= :s");
+			q1.setParameter("s", 2);
+			q1.setParameter("p", userid);
+			System.out.println(userid);
+			List<Opd> temp= (List<Opd>) q1.list();
+			int i=0;
+			for(Opd o: temp)
+			{
+				i++;
+			}
+			infoLog.logActivities("in PatientPrescriptionDao-prescriptionPrintCount: found="+i);
+			return i;
+
+		}catch(Exception e)
+		{
+			System.out.println(e);
+			infoLog.logActivities("in PatientPrescriptionDao-prescriptionPrintCount: "+e);
+			return 0;
+		}
+	}
 	@Transactional
 	public List<String[]> getPrescriptionList() 
 	{

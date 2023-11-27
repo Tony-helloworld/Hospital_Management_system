@@ -37,14 +37,14 @@ public class LoginDao
 			boolean validUser = l.getPassword().equals(temp.getPassword()) ;
 //			System.out.println(l.getPassword() );
 //			System.out.println(temp.getPassword() );
-			System.out.println(temp);
+//			System.out.println(temp);
 //			boolean validUser=BCrypt.checkpw(l.getPassword(),temp.getPassword());
 			infoLog.logActivities("in logindao-validate:found= "+"i/p="+l.getPassword()+", db="+temp.getPassword()+", match= "+validUser);
 			if(!validUser)
 			{ 
 				throw new Exception("Password didn't matched"); 
 			}
-			System.out.println(temp.getId());
+//			System.out.println(temp.getId());
 			return temp.getId();
 		}
 		catch(Exception e)
@@ -58,5 +58,7 @@ public class LoginDao
 	{
 		//System.out.println("@"+s);
 	}
-	
+//	@Transactional
+//	public String validate(Login l)
+//
 }

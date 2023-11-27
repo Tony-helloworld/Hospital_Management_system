@@ -28,7 +28,7 @@ public class EditLoginDetailsDao
 			infoLog.logActivities("in EditLoginDetailsDao-editLoginInfo:got= "+id+" "+username+" "+passsword);
 			
 			Session session= sf.getCurrentSession();
-			String hashStr=BCrypt.hashpw(passsword, BCrypt.gensalt());
+			String hashStr=passsword;
 			Query q1=session.createQuery("update Login set username= :u, password= :p where id= :i");
 			q1.setParameter("u", username);
 			q1.setParameter("p", hashStr);

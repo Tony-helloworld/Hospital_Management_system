@@ -63,7 +63,10 @@ public class EditLoginDetailsController
 					session.setAttribute("userInfo",l1);
 					
 					ModelAndView mv= new ModelAndView();
-					mv.setViewName("welcome"); 
+					mv.setViewName("welcome");
+					mv.addObject("prescriptionsCount", session.getAttribute("prescriptionsCount"));  //for receptionist only
+					mv.addObject("users_count", session.getAttribute("users_count"));  //for admin only
+
 					return mv;
 				}
 				else

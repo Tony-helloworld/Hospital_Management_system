@@ -58,7 +58,7 @@
 						 </div>
 						 <div style="text-align: center;">
 				    	<button type="submit" class="btn btn-primary" onclick="return validate()">Submit</button>
-				    	</div> g
+				    	</div>
 				    </form>
 			    </p>
 			  </div>

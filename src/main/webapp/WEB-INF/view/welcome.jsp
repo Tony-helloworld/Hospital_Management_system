@@ -89,7 +89,7 @@ body {
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Employees
 				</a>
 		<%} %>
-		
+
 		<% if(l.getRole().equals("receptionist")){ %>
 				<a href="addPatientView.html">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Patient
@@ -106,7 +106,16 @@ body {
 					<span class="badge badge-pill badge-danger"><%=count %></span>
 				</a>
 		<%} %>
-		
+				<% if(l.getRole().equals("patient")){ %>
+				<a href="addPatientView.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select Doctor
+				</a>
+				<a href="prescriptionQueueView.html">
+					<% String count=""+request.getAttribute("prescriptionsCount"); %>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prescriptions
+					<span class="badge badge-pill badge-danger"><%=count %></span>
+				</a>
+				<%} %>
 		<% if(l.getRole().equals("doctor")){ %>
 				<a href="opdQueueD.html">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OPD Queue

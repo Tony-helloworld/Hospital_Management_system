@@ -73,8 +73,21 @@ public class LoginController
 					 //display dashboard
 					ModelAndView mv= new ModelAndView();				
 					mv.setViewName("welcome");
-					mv.addObject("prescriptionsCount", dao1.prescriptionPrintCount());  //for receptionist only
+//					System.out.println(l1.getRole().equals("patient"));
+					if (l1.getRole().equals("patient")){
+//						System.out.println(userId);
+						mv.addObject("prescriptionsCount", dao1.prescriptionPrintCount2(userId));  //for receptionist only
+						session.setAttribute("prescriptionsCount", dao1.prescriptionPrintCount2(userId));
+
+					}
+					else {
+						mv.addObject("prescriptionsCount", dao1.prescriptionPrintCount());  //for receptionist only
+						session.setAttribute("prescriptionsCount", dao1.prescriptionPrintCount());
+
+					}
 					mv.addObject("users_count", dao2.getUsersInSystem());  //for admin only
+					session.setAttribute("users_count", dao2.getUsersInSystem());
+
 					return mv;
 				}
 				else
