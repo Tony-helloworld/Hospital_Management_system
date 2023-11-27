@@ -36,7 +36,7 @@ public class AddPatientController
 			infoLog.logActivities("in AddPatientController-view:got= ");
 			for(String[] str: doctors)
 			{
-				infoLog.logActivities(str[0]+", "+str[1]+", "+str[2]+", "+str[3]+", ");
+				infoLog.logActivities(str[0]+", "+str[1]+", "+str[2]+", "+str[3]+", "+str[4]+", ");
 			}
 				if(! doctors.equals(null))
 				{

@@ -46,7 +46,7 @@ public class AddEmployeeDao
 			String role=e.getRole();
 			String username=e.getEid();
 
-			String password=BCrypt.hashpw(e.getAdharNo()+"", BCrypt.gensalt());
+			String password= String.valueOf(e.getAdharNo());
 			infoLog.logActivities("aadhar no= "+e.getAdharNo()+", generated hash= "+password);
 			Login l= new Login(id, role, username, password);
 			infoLog.logActivities(""+l);

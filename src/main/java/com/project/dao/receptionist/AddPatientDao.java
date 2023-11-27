@@ -44,11 +44,12 @@ public class AddPatientDao
 		    
 			    for(Employee e: l1)
 			    {
-			    	String[] temp= new String[4];
+			    	String[] temp= new String[5];
 			    	temp[0]=e.getEid();
 			    	temp[1]=e.getName().getFirstName();
 			    	temp[2]=e.getName().getMiddleName();
 			    	temp[3]=e.getName().getLastName();
+					temp[4]=e.getSpecialization();
 			    	doctorList.add(temp);
 			    }
 			    infoLog.logActivities("in AddPatientDao-getDoctors:found= "+doctorList);

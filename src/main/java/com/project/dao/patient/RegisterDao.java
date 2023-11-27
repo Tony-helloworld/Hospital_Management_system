@@ -4,30 +4,33 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
+import com.project.entity.Patient;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.project.dao.LoginDao;
 import com.project.entity.Employee;
 import com.project.entity.IdGenerate;
 import com.project.entity.Login;
-import com.project.entity.Patient;
+
+import javax.servlet.http.HttpSession;
 
 @Component
 public class RegisterDao
 {
     @Autowired
     private SessionFactory sf;	//hibernate configuration in springMVC-servlet.xml file
+
     @Autowired
     LoginDao infoLog;
 
     @SuppressWarnings("null")
-    @Transactional
+    @javax.transaction.Transactional
     public List<String[]> getDoctors()
     {
         Session session= sf.getCurrentSession();
@@ -44,11 +47,13 @@ public class RegisterDao
 
             for(Employee e: l1)
             {
-                String[] temp= new String[4];
+                String[] temp= new String[5];
                 temp[0]=e.getEid();
                 temp[1]=e.getName().getFirstName();
                 temp[2]=e.getName().getMiddleName();
                 temp[3]=e.getName().getLastName();
+                temp[4]=e.getSpecialization();
+                System.out.println(temp[4]);
                 doctorList.add(temp);
             }
             infoLog.logActivities("in AddPatientDao-getDoctors:found= "+doctorList);
@@ -62,38 +67,55 @@ public class RegisterDao
         }
     }
 
+    //to manage transaction by itself
     @Transactional
     public boolean add(Patient p1)
     {
-        infoLog.logActivities("in RegisterDao-add: got= "+p1);
-        //try {
-        Date date= new Date();
-        p1.setRegistrationDate(date);  //currentdate is stored
+        try
+        {
 
-        Session session= sf.getCurrentSession();
-        session.save(p1);
+            infoLog.logActivities("in AddPatientDao-add: got= "+p1);
+            //try {
+            Date date= new Date();
+            p1.setRegistrationDate(date);  //currentdate is stored
 
-        //incrementing eid of idgenerate table contents
-        Query q1=session.createQuery(" from IdGenerate");
-        IdGenerate temp= (IdGenerate) q1.uniqueResult();
+            Session session= sf.getCurrentSession();
+            session.save(p1);
 
-        int pid=temp.getPid();
-        infoLog.logActivities("in RegisterDao-add: pid= "+pid);
-        pid++;
+            //incrementing eid of idgenerate table contents
+            Query q1=session.createQuery(" from IdGenerate");
+            IdGenerate temp= (IdGenerate) q1.uniqueResult();
 
-        q1=session.createQuery("update IdGenerate set pid= :i");
-        q1.setParameter("i", pid);
-        int res= q1.executeUpdate();
+            int pid=temp.getPid();
+            infoLog.logActivities("in AddPatientDao-add: pid= "+pid);
+            pid++;
 
-        infoLog.logActivities("in RegisterDao-add: incremented pid= "+pid+" update status="+res);
-        return true;
-			/*}
-			catch(Exception e)
-			{
-				infoLog.logActivities("in AddPatientDao-add: "+e);
-				return false;
-			}*/
+            q1=session.createQuery("update IdGenerate set pid= :i");
+            q1.setParameter("i", pid);
+            int res= q1.executeUpdate();
 
+            infoLog.logActivities("in AddPatientDao-add: incremented pid= "+pid+" update status="+res);
+
+
+            //storing info in Login table
+            String id=p1.getPid();
+            String role=p1.getRole();
+            String username=p1.getPid();
+
+            String password= String.valueOf(p1.getAdharNo());
+            infoLog.logActivities("aadhar no= "+p1.getAdharNo()+", generated hash= "+password);
+            Login l= new Login(id, role, username, password);
+//            HttpSession session= request.getSession();
+//            session.setAttribute("userInfo", l);
+            infoLog.logActivities(""+l);
+            session.save(l);
+
+            return true;
+        }
+        catch(Exception ex)
+        {
+            infoLog.logActivities("in AddEmployeeDao-add: "+ex);
+            return false;
+        }
     }
-
 }

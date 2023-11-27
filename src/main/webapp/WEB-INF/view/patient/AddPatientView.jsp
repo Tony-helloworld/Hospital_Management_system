@@ -104,7 +104,7 @@
       <div class="main"><br/><br/>
         <h1>Add New Patient</h1><br/>
         <div class="container grey">
-          <form action="addPatient.html" method="post" name="demo"><br/>
+          <form action="RegisterPatient.html" method="post" name="demo"><br/>
             <div class="form-group">
               <label>Name</label>
               <div class="row">
@@ -211,21 +211,21 @@
                        autocomplete="off" maxlength="50">
               </div>
 
-<%--              <div class="form-group">--%>
-<%--                <label>Doctor to be Assigned</label>--%>
-<%--                <div class="row">--%>
-<%--                  <div class="col-sm-4">--%>
-<%--                    <select class="form-control" id="exampleSelect1" name="doctorId">--%>
-<%--                      <%@ page import="java.util.List" %>--%>
-<%--                      <% List<String[]> d=(List<String[]>) request.getAttribute("doctorsList");--%>
-<%--                        for(String[] str: d)--%>
-<%--                        { %>--%>
-<%--                      <option value="<%= str[0] %>"><%= str[1]+" "+str[2]+" "+str[3] %></option>--%>
-<%--                      <%} %>--%>
-<%--                    </select>--%>
-<%--                  </div>--%>
-<%--                </div>--%>
-<%--              </div>--%>
+              <div class="form-group">
+                <label>Doctor to be Assigned</label>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <select class="form-control" id="exampleSelect1" name="doctorId">
+                      <%@ page import="java.util.List" %>
+                      <% List<String[]> d=(List<String[]>) request.getAttribute("doctorsList");
+                        for(String[] str: d)
+                        { %>
+                      <option value="<%= str[0] %>"><%= str[1]+" "+str[2]+" "+str[3]+" "+str[4] %></option>
+                      <%} %>
+                    </select>
+                  </div>
+                </div>
+              </div>
               <div style="text-align: center;">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>

@@ -27,7 +27,7 @@ public class Patient
 		
 		private String birthdate;
 		private String gender;
-		
+		private String role;
 		@Column(unique=true)
 		private String emailID;	//optional
 		
@@ -48,7 +48,7 @@ public class Patient
 		private String medicineAllergy;	
 		private String doctorId;
 		
-		Patient(){}
+		public Patient(){}
 		
 		public Patient(Name name, String birthdate, String gender, String emailID, long mobileNo,
 				long adharNo, String country, String state, String city, Address address, String bloodGroup,
@@ -68,9 +68,33 @@ public class Patient
 			this.chronicDiseases = chronicDiseases;
 			this.medicineAllergy = medicineAllergy;
 			this.doctorId = doctorId;
+			this.role = "Patient";
 		}
-		
-		public void setRegistrationDate(Date registrationDate) {
+	public Patient(Name name, String birthdate, String gender, String emailID, long mobileNo,
+				   long adharNo, String country, String state, String city, Address address, String bloodGroup,
+				   String chronicDiseases, String medicineAllergy) {
+		super();
+		this.name = name;
+		this.birthdate = birthdate;
+		this.gender = gender;
+		this.emailID = emailID;
+		this.mobileNo = mobileNo;
+		this.adharNo = adharNo;
+		this.country = country;
+		this.state = state;
+		this.city = city;
+		this.address = address;
+		this.bloodGroup = bloodGroup;
+		this.chronicDiseases = chronicDiseases;
+		this.medicineAllergy = medicineAllergy;
+		this.doctorId = "EMP101";
+		this.role = "Patient";
+
+	}
+
+
+
+	public void setRegistrationDate(Date registrationDate) {
 			this.registrationDate = registrationDate;
 		}
 		public void setDoctorId(String doctorId) {
@@ -124,7 +148,7 @@ public class Patient
 		public String getDoctorId() {
 			return doctorId;
 		}
-
+		public String getRole(){return "Patient";}
 		@Override
 		public String toString() {
 			return "Patient [registrationDate=" + registrationDate + ", pid=" + pid + ", name=" + name + ", birthdate="
