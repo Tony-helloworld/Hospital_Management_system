@@ -29,14 +29,14 @@ public class RoomDao {
         try
         {
             infoLog.logActivities("Add ICU= ");
-            System.out.println(name);
+//            System.out.println(name);
             Session session= sf.getCurrentSession();
 
 //            String hashStr=passsword;
             Query q = session.createQuery("from Room where name = :p");
             q.setParameter("p", name);
             Room temp= (Room) q.uniqueResult();
-            System.out.println(temp);
+//            System.out.println(temp);
 
             int u = temp.getUsed()+1;
             int max = temp.getMaxRoom();
@@ -195,5 +195,13 @@ public class RoomDao {
             return 0;
         }
 
+    }
+    @Transactional
+    public int getUsed( String name){
+        Session session= sf.getCurrentSession();
+        Query q1= session.createQuery("from Room where name =:s");	//HQL use classname not tablename
+        q1.setParameter("s", name);
+        Room temp= (Room) q1.uniqueResult();
+        return temp.getUsed();
     }
 }

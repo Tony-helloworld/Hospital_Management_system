@@ -170,12 +170,27 @@ body {
 						        <div class="form-group">
 							         <label for="room">Room</label>
 							  		 <select class="form-control" name="room" id="exampleSelect1">
-								 	 	 <option value="None">None</option>
-										 <option value="ICU">ICU</option>
-								  		 <option value="OperationRoom">OperationRoom</option>
-							  		 </select>
-						  </div>
+								 	 <option value="None">None</option>
+								      <option value="ICU">ICU</option>
+								      <option value="OperationRoom">OperationRoom</option>
+							          </select>
+						       </div>
+						  <div class="form-group">
+							  <label>Receptionist to be Assigned</label>
+							  <div class="row">
+								  <div class="col-sm-4">
+									  <select class="form-control" id="exampleSelect1" name="receptionistId">
+										  <%@ page import="java.util.List" %>
+										  <% List<String[]> d=(List<String[]>) request.getAttribute("receptionist");
+											  for(String[] str: d)
+											  { %>
+										  <option value="<%= str[0] %>"><%= str[0]+" "+str[1]+" "+str[2]+" "+str[3] %></option>
+										  <%} %>
+									  </select>
+								  </div>
+							  </div>
 					    </p>
+
 					  </div>
 					</div>
 

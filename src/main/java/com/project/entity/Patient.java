@@ -50,7 +50,7 @@ public class Patient
 		
 		public Patient(){}
 		
-		public Patient(Name name, String birthdate, String gender, String emailID, long mobileNo,
+		public  Patient(Name name, String birthdate, String gender, String emailID, long mobileNo,
 				long adharNo, String country, String state, String city, Address address, String bloodGroup,
 				String chronicDiseases, String medicineAllergy, String doctorId) {
 			super();
