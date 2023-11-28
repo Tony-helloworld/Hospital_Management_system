@@ -78,6 +78,36 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info
                 </a>
                 <%} %>
+
+                <% if(l.getRole().equals("administrator")){ %>
+<%--                <a href="personalInfo.html">--%>
+<%--                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info--%>
+<%--                </a>--%>
+                <a href="addEmployeeView.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Employee
+                </a>
+                <a href="searchEmployeeView.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search Employee
+                </a>
+                <a href="allEmployeesView.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Employees
+                </a>
+                <a href="allRoomsView.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Rooms
+                </a>
+                <a href="ICUInfo2.html">
+                    <span class="text-warning">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;ICU Info</span>
+                </a>
+                <a href="OperationRoomInfo2.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info
+                </a>
+                <a href="PharmacyInfo2.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pharmacy Info
+                </a>
+                <%} %>
+
+
+
                 <% if(l.getRole().equals("receptionist")){ %>
 <%--                <a href="personalInfo.html">--%>
 <%--                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info--%>
@@ -112,8 +142,8 @@
                     <tr>
                         <td>Room Name</td>
                         <td>Patient ID</td>
-<%--                        <td>Max  number</td>--%>
-<%--                        <td>Action</td>--%>
+                        <td>Receptionist  ID</td>
+                        <td>Action</td>
                         <%--            <td>Set max</td>--%>
                     </tr>
                     </thead>
@@ -126,7 +156,11 @@
                     <tr>
                         <td>ICU<%= icu.getId() %></td>
                         <td>P10<%= icu.getId() %></td>
-<%--                        <td><%= icu.getPatientID() %>&nbsp;</td>--%>
+                        <td><%= icu.getReceptionistID() %></td>
+                        <td><span  style="text-align:center;">
+                            <button type="submit" class="btn btn-danger"> Cancel </button>
+                        </span>
+                        </td>
                     </tr>
                     <%
                         }

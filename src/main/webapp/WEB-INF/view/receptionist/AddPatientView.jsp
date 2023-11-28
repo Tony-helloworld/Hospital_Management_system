@@ -90,7 +90,7 @@ body {
 <%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info--%>
 <%--				</a>--%>
 				<a href="PharmacyInfo.html">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pharmacy Info
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pharmacy Info
 				</a>
 <%--				<a href="addPatientView.html">--%>
 <%--					<span style="color: orange;">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;Add Patient</span>--%>

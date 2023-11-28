@@ -5,7 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import com.project.dao.ICUDDao;
 import com.project.dao.RoomDao;
-import com.project.dao.receptionist.ORDDao;
+import com.project.dao.ORDDao;
 import com.project.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.dao.LoginDao;
-import com.project.dao.RoomDao;
 
 import com.project.dao.doctor.PatientHistoryDao;
 import com.project.dao.doctor.patientObservePrescribeDao;

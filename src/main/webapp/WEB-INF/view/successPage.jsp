@@ -101,7 +101,7 @@ body {
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info
 				</a>
 				<a href="PharmacyInfo2.html">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pharmacy Info
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pharmacy Info
 				</a>
 		<%} %>
 		
@@ -119,7 +119,7 @@ body {
 <%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info--%>
 <%--				</a>--%>
 				<a href="PharmacyInfo.html">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pharmacy Info
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pharmacy Info
 				</a>
 <%--				<a href="addPatientView.html">--%>
 <%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Patient--%>

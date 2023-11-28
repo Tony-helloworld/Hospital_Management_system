@@ -82,6 +82,17 @@ public class ICUDDao {
 //        Room temp= (Room) q.uniqueResult();
         return  l1;
     }
+    @Transactional
+    public  List<ICUD>  get2(){
+        Session session= sf.getCurrentSession();
+        Query q = session.createQuery("FROM ICUD where receptionistID !=null ");
+//        q.setParameter("u", PID);
+        List<ICUD> l1=(List<ICUD>) q.list();
+//        Query q = session.createQuery("from Room where name = :p");
+//        q.setParameter("p", name);
+//        Room temp= (Room) q.uniqueResult();
+        return  l1;
+    }
 //    @Transactional
 //    public  String getName(String PID){
 //        Session session= sf.getCurrentSession();

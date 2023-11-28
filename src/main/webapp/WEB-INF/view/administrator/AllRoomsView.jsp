@@ -98,7 +98,7 @@
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info
         </a>
         <a href="PharmacyInfo2.html">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pharmacy Info
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pharmacy Info
         </a>
         <%} %>
       </div>

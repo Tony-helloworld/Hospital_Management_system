@@ -1,4 +1,4 @@
-package com.project.dao.receptionist;
+package com.project.dao;
 
 
 import com.project.dao.LoginDao;
@@ -57,6 +57,17 @@ public class ORDDao {
         Session session= sf.getCurrentSession();
         Query q = session.createQuery("FROM ORD where receptionistID = :u");
         q.setParameter("u", PID);
+        List<ORD> l1=(List<ORD>) q.list();
+//        Query q = session.createQuery("from Room where name = :p");
+//        q.setParameter("p", name);
+//        Room temp= (Room) q.uniqueResult();
+        return  l1;
+    }
+    @Transactional
+    public List<ORD> get2() {
+        Session session= sf.getCurrentSession();
+        Query q = session.createQuery("FROM ORD where receptionistID !=null ");
+//        q.setParameter("u", PID);
         List<ORD> l1=(List<ORD>) q.list();
 //        Query q = session.createQuery("from Room where name = :p");
 //        q.setParameter("p", name);

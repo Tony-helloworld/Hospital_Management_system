@@ -1,4 +1,4 @@
-package com.project.controller.receptionist;
+package com.project.controller.administrator;
 
 import com.project.dao.ICUDDao;
 import com.project.dao.LoginDao;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-public class patientRoomController
+public class ApatientRoomController
 {
 	@Autowired
 	patientObservePrescribeDao dao;
@@ -40,7 +40,7 @@ public class patientRoomController
 
 	@Autowired
 	RoomDao dao3;
-	@RequestMapping("/ICUInfo.html")
+	@RequestMapping("/ICUInfo2.html")
 	public ModelAndView ICUView(HttpServletRequest request)
 	{
 //		request.get
@@ -49,11 +49,11 @@ public class patientRoomController
 		String id = l.getId();
 
 
-		List<ICUD> icus = dao4.get(id);
+		List<ICUD> icus = dao4.get2();
 
 		ModelAndView mv= new ModelAndView();
 
-		mv.setViewName("receptionist/ICUInfoView");
+		mv.setViewName("administrator/ICUInfoView");
 //		mv.addObject("Rooms", dao1.getAllRooms());
 //		List<String[]> receptionists= dao.();
 //		mv.addObject("receptionists", receptionists);
@@ -62,17 +62,17 @@ public class patientRoomController
 		return mv;
 	}
 
-    @RequestMapping("/OperationRoomInfo.html")
+    @RequestMapping("/OperationRoomInfo2.html")
     public ModelAndView OperationRoomView(HttpServletRequest request)
     {
 		HttpSession session=request.getSession();
 		Login l=(Login)session.getAttribute("userInfo");
 		String id = l.getId();
-		List<ORD> icus = dao5.get(id);
+		List<ORD> icus = dao5.get2();
 
         ModelAndView mv= new ModelAndView();
 
-        mv.setViewName("receptionist/OPDInfoView");
+        mv.setViewName("administrator/OPDInfoView");
 		List<String[]> receptionists= dao.getReceptionist();
 		mv.addObject("receptionists", receptionists);
 		mv.addObject("icus", icus);

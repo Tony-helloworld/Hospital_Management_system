@@ -88,7 +88,7 @@
                     <span class="text-warning">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;OperationRoomInfo Info</span>
                 </a>
                 <a href="PharmacyInfo.html">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pharmacy Info
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pharmacy Info
                 </a>
                 <a href="prescriptionQueueView.html">
                     <% String count=""+request.getAttribute("prescriptionsCount"); %>

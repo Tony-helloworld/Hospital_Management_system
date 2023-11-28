@@ -58,7 +58,6 @@
     <div class="row">
         <div class="col-sm-*">
             <!-- sidenavbar -->
-            <%@page import="com.project.entity.Login" %>
             <%@page import="org.springframework.web.servlet.ModelAndView" %>
             <% Login l=(Login)session.getAttribute("userInfo");	 %>
             <div class="sidenav">
@@ -78,15 +77,48 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info
                 </a>
                 <%} %>
+
+
+
+                <% if(l.getRole().equals("administrator")){ %>
+                <%--                <a href="personalInfo.html">--%>
+                <%--                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info--%>
+                <%--                </a>--%>
+                <a href="addEmployeeView.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Employee
+                </a>
+                <a href="searchEmployeeView.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search Employee
+                </a>
+                <a href="allEmployeesView.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Employees
+                </a>
+                <a href="allRoomsView.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Rooms
+                </a>
+                <a href="ICUInfo2.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ICU Info
+
+                </a>
+                <a href="OperationRoomInfo2.html">
+                    <span class="text-warning">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;OperationRoom Info</span>
+                </a>
+                <a href="PharmacyInfo2.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pharmacy Info
+                </a>
+                <%} %>
+
+
+
                 <% if(l.getRole().equals("receptionist")){ %>
 <%--                <a href="personalInfo.html">--%>
 <%--                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info--%>
 <%--                </a>--%>
                 <a href="ICUInfo.html">
-                    <span class="text-warning">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;ICU Info</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ICU Info
                 </a>
                 <a href="OperationRoomInfo.html">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info
+                    <span class="text-warning">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;OperationRoomInfo Info</span>
                 </a>
                 <a href="PharmacyInfo.html">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pharmacy Info
@@ -105,28 +137,31 @@
             <div class="main"><br/><br/>
                 <h1>Working rooms</h1><br/>
                 <table class="table table-striped table-bordered">
-                    <%@page import="com.project.entity.Employee, java.util.List" %>
-                    <%@ page import="com.project.entity.Room" %>
-                    <%@ page import="com.project.entity.ICUD" %>
+                    <%@page import="java.util.List" %>
+                    <%@ page import="com.project.entity.*" %>
                     <thead>
                     <tr>
                         <td>Room Name</td>
                         <td>Patient ID</td>
-<%--                        <td>Max  number</td>--%>
-<%--                        <td>Action</td>--%>
+                        <td>Receptionist  ID</td>
+                        <td>Action</td>
                         <%--            <td>Set max</td>--%>
                     </tr>
                     </thead>
                     <tbody>
                     <%
-                        List<ICUD> icus=(List<ICUD>) request.getAttribute("icus");
-                        for(ICUD icu: icus)
+                        List<ORD> icus=(List<ORD>) request.getAttribute("icus");
+                        for(ORD icu: icus)
                         {
                     %>
                     <tr>
-                        <td>ICU<%= icu.getId() %></td>
-                        <td>P10<%= icu.getId() %></td>
-<%--                        <td><%= icu.getPatientID() %>&nbsp;</td>--%>
+                        <td>OperationRoom<%= icu.getId() %></td>
+                        <td>P10<%= icu.plus() %></td>
+                        <td><%= icu.getReceptionistID() %></td>
+                        <td><span  style="text-align:center;">
+                            <button type="submit" class="btn btn-danger"> Cancel </button>
+                        </span>
+                        </td>
                     </tr>
                     <%
                         }
