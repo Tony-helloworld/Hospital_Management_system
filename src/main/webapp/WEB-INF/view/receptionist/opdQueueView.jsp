@@ -80,15 +80,27 @@ body {
 		<%} %>
 		
 		<% if(l.getRole().equals("receptionist")){ %>
-				<a href="addPatientView.html">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Patient
+				<a href="ICUInfo.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ICU Info
 				</a>
-				<a href="searchPatientView.html">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search Patient
+<%--				<a href="OperationRoomInfo.html">--%>
+<%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info--%>
+<%--				</a>--%>
+				<a href="OperationRoomInfo.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info
 				</a>
-				<a href="opdQueueView.html">
-					<span style="color: orange;">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;OPD Queue</span>
+				<a href="PharmacyInfo.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pharmacy Info
 				</a>
+<%--				<a href="addPatientView.html">--%>
+<%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Patient--%>
+<%--				</a>--%>
+<%--				<a href="searchPatientView.html">--%>
+<%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search Patient--%>
+<%--				</a>--%>
+<%--				<a href="opdQueueView.html">--%>
+<%--					<span style="color: orange;">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;OPD Queue</span>--%>
+<%--				</a>--%>
 				<a href="prescriptionQueueView.html">
 					<% String count=""+request.getAttribute("prescriptionsCount"); %>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prescriptions 

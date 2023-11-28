@@ -91,6 +91,15 @@ body {
 				<a href="allRoomsView.html">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Rooms
 				</a>
+				<a href="ICUInfo2.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ICU Info
+				</a>
+				<a href="OperationRoomInfo2.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info
+				</a>
+				<a href="PharmacyInfo2.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pharmacy Info
+				</a>
 		<%} %>
 			</div>
 	    </div>

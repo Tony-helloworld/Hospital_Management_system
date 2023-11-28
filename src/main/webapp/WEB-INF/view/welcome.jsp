@@ -94,21 +94,42 @@ body {
 				<a href="allRoomsView.html">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Rooms
 				</a>
+				<a href="ICUInfo2.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ICU Info
+				</a>
+				<a href="OperationRoomInfo2.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info
+				</a>
+				<a href="PharmacyInfo2.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pharmacy Info
+				</a>
 		<%} %>
 
 		<% if(l.getRole().equals("receptionist")){ %>
 				<a href="personalInfo.html">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info
 				</a>
-				<a href="addPatientView.html">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Patient
+				<a href="ICUInfo.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ICU Info
 				</a>
-				<a href="searchPatientView.html">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search Patient
+				<a href="OperationRoomInfo.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info
 				</a>
-				<a href="opdQueueView.html">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OPD Queue
+<%--				<a href="OperationRoomInfo.html">--%>
+<%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info--%>
+<%--				</a>--%>
+				<a href="PharmacyInfo.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pharmacy Info
 				</a>
+<%--				<a href="addPatientView.html">--%>
+<%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Patient--%>
+<%--				</a>--%>
+<%--				<a href="searchPatientView.html">--%>
+<%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search Patient--%>
+<%--				</a>--%>
+<%--				<a href="opdQueueView.html">--%>
+<%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OPD Queue--%>
+<%--				</a>--%>
 				<a href="prescriptionQueueView.html">
 					<% String count=""+request.getAttribute("prescriptionsCount"); %>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prescriptions 
