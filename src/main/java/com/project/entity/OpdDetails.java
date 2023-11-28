@@ -15,12 +15,14 @@ public class OpdDetails
 	String donts;
 	String investigations;
 	String followupDate;
+	String room;
+
 	int fees;
 	
 	public OpdDetails() {}
 
 	public OpdDetails(String symptoms, String diagnosis, String medicinesDose, String dos, String donts,
-			String investigations, String followupDate, int fees) {
+			String investigations, String followupDate, int fees, String room) {
 		super();
 		this.symptoms = symptoms;
 		this.diagnosis = diagnosis;
@@ -30,6 +32,7 @@ public class OpdDetails
 		this.investigations = investigations;
 		this.followupDate = followupDate;
 		this.fees = fees;
+		this.room =room;
 	}
 
 	public void setOpdid(int opdid) {
@@ -103,7 +106,9 @@ public class OpdDetails
 	public int getFees() {
 		return fees;
 	}
-
+	public String getRoom() {
+		return room;
+	}
 	@Override
 	public String toString() {
 		return "OpdDetails [opdid=" + opdid + ", symptoms=" + symptoms + ", diagnosis=" + diagnosis + ", medicinesDose="

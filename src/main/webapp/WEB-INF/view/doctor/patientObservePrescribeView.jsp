@@ -167,11 +167,20 @@ body {
 									  <input type="text" class="form-control" id="exampleInputEmail1" name="fees" placeholder="eg. 500"
 								      required="required" autocomplete="off" maxlength="20">
 						    	</div>
+						        <div class="form-group">
+							         <label for="room">Room</label>
+							  		 <select class="form-control" name="room" id="exampleSelect1">
+								 	 	 <option value="None">None</option>
+										 <option value="ICU">ICU</option>
+								  		 <option value="OperationRoom">OperationRoom</option>
+							  		 </select>
+						  </div>
 					    </p>
 					  </div>
 					</div>
-			
-			 <div style="text-align: center;">
+
+
+				<div style="text-align: center;">
 				<button type="submit" class="btn btn-primary">Submit</button>
 			 </div>
 			</form><br/>

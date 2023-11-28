@@ -42,11 +42,11 @@ public class patientObservePrescribeController
 	}
 	
 	@RequestMapping("/addDopdPatientCase.html")
-	public ModelAndView addPatientCase(@RequestParam("symptoms")String symptoms, @RequestParam("diagnosis")String diagnosis, @RequestParam("medicinesDose")String medicinesDose, @RequestParam("dos")String dos, @RequestParam("donts")String donts, @RequestParam("investigations")String investigations, @RequestParam("followupDate")String followupDate, @RequestParam("fees")int fees, HttpServletRequest request)
+	public ModelAndView addPatientCase(@RequestParam("symptoms")String symptoms, @RequestParam("diagnosis")String diagnosis, @RequestParam("medicinesDose")String medicinesDose, @RequestParam("dos")String dos, @RequestParam("donts")String donts, @RequestParam("investigations")String investigations, @RequestParam("followupDate")String followupDate, @RequestParam("fees")int fees, @RequestParam("room") String room ,HttpServletRequest request)
 	{	
 		infoLog.logActivities("in addpatientcase");
 		
-		OpdDetails patientcase= new OpdDetails(symptoms, diagnosis, medicinesDose, dos, donts, investigations, followupDate, fees);
+		OpdDetails patientcase= new OpdDetails(symptoms, diagnosis, medicinesDose, dos, donts, investigations, followupDate, fees, room);
 		
 		HttpSession session=request.getSession();
 		String pid=(String)session.getAttribute("currentPatientId");

@@ -127,6 +127,10 @@
 			        <td>Fees: </td>
 			        <td>Rs. <%= prescription.getFees() %></td>
 			     </tr>
+				   <tr>
+					   <td>Room: </td>
+					   <td><%= prescription.getRoom() %></td>
+				   </tr>
 			</tbody>
 			</table>
 			</div>
