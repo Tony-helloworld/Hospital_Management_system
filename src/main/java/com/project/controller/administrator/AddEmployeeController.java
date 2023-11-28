@@ -46,15 +46,15 @@ public class AddEmployeeController
 	}
 	
 	@RequestMapping(value="/addEmployee.html", method = RequestMethod.POST)
-	public ModelAndView add(@RequestParam("firstName")String firstName, @RequestParam("middleName")String middleName, @RequestParam("lastName")String lastName, @RequestParam("birthdate")String birthdate, @RequestParam("gender")String gender, @RequestParam("email")String email, @RequestParam("mobileNo")Long mobileNo, @RequestParam("adharNo")Long adharNo, @RequestParam("country")String country, @RequestParam("state")String state, @RequestParam("city")String city, @RequestParam("residentialAddress")String residentialAddress, @RequestParam("permanentAddress")String permanentAddress, @RequestParam("role")String role, @RequestParam("qualification")String qualification, @RequestParam("specialization")String specialization )
+	public ModelAndView add(@RequestParam("firstName")String firstName, @RequestParam("middleName")String middleName, @RequestParam("lastName")String lastName, @RequestParam("birthdate")String birthdate, @RequestParam("gender")String gender, @RequestParam("email")String email, @RequestParam("mobileNo")Long mobileNo, @RequestParam("adharNo")Long adharNo, @RequestParam("country")String country, @RequestParam("state")String state, @RequestParam("city")String city, @RequestParam("residentialAddress")String residentialAddress, @RequestParam("permanentAddress")String permanentAddress, @RequestParam("role")String role, @RequestParam("qualification")String qualification, @RequestParam("department")String department )
 	{	
 		try
 		{		
 			Name n1= new Name(firstName, middleName, lastName);
 			Address a1= new Address(residentialAddress,permanentAddress);
-			infoLog.logActivities("in AddEmployeeController-add: got= "+n1+" "+birthdate+" "+gender+" "+email+" "+mobileNo+" "+adharNo+" "+country+" "+state+" "+city+" "+a1+" "+role+" "+qualification+" "+specialization);
+			infoLog.logActivities("in AddEmployeeController-add: got= "+n1+" "+birthdate+" "+gender+" "+email+" "+mobileNo+" "+adharNo+" "+country+" "+state+" "+city+" "+a1+" "+role+" "+qualification+" "+department);
 			        
-			Employee e1= new Employee(null,n1,birthdate,gender,email,mobileNo,adharNo,country,state,city,a1,role,qualification,specialization);
+			Employee e1= new Employee(null,n1,birthdate,gender,email,mobileNo,adharNo,country,state,city,a1,role,qualification,department);
 	
 			boolean b=dao.add(e1);
 			infoLog.logActivities("returned to AddEmployeeController-add: got="+b);

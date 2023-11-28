@@ -191,8 +191,8 @@ body {
 					    </div>
 					
 					    <div class="form-group">
-					      <label>Specialization</label>
-					      <input type="text" class="form-control" id="exampleInputEmail1" name="specialization" value="${ employee.specialization }"
+					      <label>Department</label>
+					      <input type="text" class="form-control" id="exampleInputEmail1" name="Department" value="${ employee.department }"
 						 	required="required" autocomplete="off" maxlength="20">
 					    </div>
 						<div style="text-align: center;">

@@ -46,7 +46,7 @@ public class PAddPatientDao
 			    	temp[1]=e.getName().getFirstName();
 			    	temp[2]=e.getName().getMiddleName();
 			    	temp[3]=e.getName().getLastName();
-					temp[4]=e.getSpecialization();
+					temp[4]=e.getDepartment();
 			    	doctorList.add(temp);
 			    }
 			    infoLog.logActivities("in AddPatientDao-getDoctors:found= "+doctorList);

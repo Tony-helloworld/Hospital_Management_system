@@ -25,13 +25,13 @@ public class EditEmployeeDao
 	LoginDao infoLog;
 	
 	@Transactional
-	public int edit(String eid, Name name, String birthdate, String gender, String emailId, Long mobileNo, Long adharNo, String country, String state, String city, Address address, String role, String qualification, String specialization)
+	public int edit(String eid, Name name, String birthdate, String gender, String emailId, Long mobileNo, Long adharNo, String country, String state, String city, Address address, String role, String qualification, String department)
 	{
 		//only enabled fields values is updated ..
-		infoLog.logActivities("in EditEmployeeDao-edit: got= "+eid+" "+name+" "+birthdate+" "+gender+" "+emailId+" "+mobileNo+" "+adharNo+" "+country+" "+state+" "+city+" "+address+" "+role+" "+qualification+" "+specialization);
+		infoLog.logActivities("in EditEmployeeDao-edit: got= "+eid+" "+name+" "+birthdate+" "+gender+" "+emailId+" "+mobileNo+" "+adharNo+" "+country+" "+state+" "+city+" "+address+" "+role+" "+qualification+" "+department);
 		
 		Session session= sf.getCurrentSession();
-		Query q1=session.createQuery("update Employee set name.firstName= :t1, name.middleName= :t2, name.lastName= :t3, birthdate= :t4, emailId= :t5, mobileNo= :t6, country= :t7, state= :t8, city=:t9, address.residentialAddress= :t10, qualification= :t12, specialization= :t13 where eid= :id");
+		Query q1=session.createQuery("update Employee set name.firstName= :t1, name.middleName= :t2, name.lastName= :t3, birthdate= :t4, emailID= :t5, mobileNo= :t6, country= :t7, state= :t8, city=:t9, address.residentialAddress= :t10, qualification= :t12, department= :t13 where eid= :id");
 		q1.setParameter("t1", name.getFirstName());
 		q1.setParameter("t2", name.getMiddleName());
 		q1.setParameter("t3", name.getLastName());
@@ -43,7 +43,7 @@ public class EditEmployeeDao
 		q1.setParameter("t9", city);
 		q1.setParameter("t10", address.getResidentialAddress());
 		q1.setParameter("t12", qualification);
-		q1.setParameter("t13", specialization);
+		q1.setParameter("t13", department);
 		q1.setParameter("id", eid);
 		
 		try {

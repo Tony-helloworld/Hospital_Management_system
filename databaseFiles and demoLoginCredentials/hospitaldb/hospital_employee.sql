@@ -40,7 +40,7 @@ CREATE TABLE `employee` (
   `permanentAddress` varchar(255) DEFAULT NULL,
   `role` varchar(255) DEFAULT NULL,
   `qualification` varchar(255) DEFAULT NULL,
-  `specialization` varchar(255) DEFAULT NULL,
+  `department` varchar(255) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`eid`),
   UNIQUE KEY `emailID` (`emailID`),

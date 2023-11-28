@@ -194,8 +194,8 @@ body {
 			    </div>
 			
 			    <div class="form-group">
-			      <label>Specialization</label>
-			      <input type="text" class="form-control" id="exampleInputEmail1" name="specialization" placeholder="Enter Specialization"
+			      <label>Department</label>
+			      <input type="text" class="form-control" id="exampleInputEmail1" name="department" placeholder="Enter Department"
 			        required="required" autocomplete="off" maxlength="50">
 			    </div>
 			    <div  style="text-align:center;">

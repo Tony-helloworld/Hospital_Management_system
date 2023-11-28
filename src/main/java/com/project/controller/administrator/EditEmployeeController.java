@@ -74,14 +74,14 @@ public class EditEmployeeController
 	}
 	
 	@RequestMapping(value="/editEmployee.html", method = RequestMethod.POST)
-	public ModelAndView edit(@RequestParam("eid")String eid, @RequestParam("firstName")String firstName, @RequestParam("middleName")String middleName, @RequestParam("lastName")String lastName, @RequestParam("birthdate")String birthdate, @RequestParam("gender")String gender, @RequestParam("email")String email, @RequestParam("mobileNo")Long mobileNo, @RequestParam("adharNo")Long adharNo, @RequestParam("country")String country, @RequestParam("state")String state, @RequestParam("city")String city, @RequestParam("residentialAddress")String residentialAddress, @RequestParam("permanentAddress")String permanentAddress, @RequestParam("role")String role, @RequestParam("qualification")String qualification, @RequestParam("specialization")String specialization)
+	public ModelAndView edit(@RequestParam("eid")String eid, @RequestParam("firstName")String firstName, @RequestParam("middleName")String middleName, @RequestParam("lastName")String lastName, @RequestParam("birthdate")String birthdate, @RequestParam("gender")String gender, @RequestParam("email")String email, @RequestParam("mobileNo")Long mobileNo, @RequestParam("adharNo")Long adharNo, @RequestParam("country")String country, @RequestParam("state")String state, @RequestParam("city")String city, @RequestParam("residentialAddress")String residentialAddress, @RequestParam("permanentAddress")String permanentAddress, @RequestParam("role")String role, @RequestParam("qualification")String qualification, @RequestParam("department")String department)
 	{
 		try {
 			Name n1=new Name(firstName,middleName,lastName);
 			Address a1= new Address(residentialAddress, permanentAddress);
-			infoLog.logActivities("in EditEmployeeController-edit: got= "+eid+" "+n1+" "+birthdate+" "+gender+" "+email+" "+mobileNo+" "+adharNo+" "+country+" "+state+" "+city+" "+a1+" "+role+" "+qualification+" "+specialization);
+			infoLog.logActivities("in EditEmployeeController-edit: got= "+eid+" "+n1+" "+birthdate+" "+gender+" "+email+" "+mobileNo+" "+adharNo+" "+country+" "+state+" "+city+" "+a1+" "+role+" "+qualification+" "+department);
 			
-			int res=dao2.edit(eid,n1,birthdate,gender,email,mobileNo,adharNo,country,state,city,a1,role,qualification,specialization);
+			int res=dao2.edit(eid,n1,birthdate,gender,email,mobileNo,adharNo,country,state,city,a1,role,qualification,department);
 			infoLog.logActivities("returned to EditEmployeeController-edit: got= "+res);
 			
 			if(res==1)

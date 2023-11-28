@@ -156,8 +156,8 @@ body {
 				        <td>${ employee.qualification }</td>	<!-- getters r used to access values -->
 				     </tr>
 				     <tr>
-				        <td class="font-weight-bold">Specialization</td>
-				        <td>${ employee.specialization }</td>	<!-- getters r used to access values -->
+				        <td class="font-weight-bold">Department</td>
+				        <td>${ employee.department }</td>	<!-- getters r used to access values -->
 				     </tr> 	
 				</tbody>
 				</table>	

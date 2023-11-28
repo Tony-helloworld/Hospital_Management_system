@@ -52,7 +52,7 @@ public class RegisterDao
                 temp[1]=e.getName().getFirstName();
                 temp[2]=e.getName().getMiddleName();
                 temp[3]=e.getName().getLastName();
-                temp[4]=e.getSpecialization();
+                temp[4]=e.getDepartment();
                 System.out.println(temp[4]);
                 doctorList.add(temp);
             }

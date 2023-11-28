@@ -49,14 +49,14 @@ public class Employee
 	
 	private String role;
 	private String qualification;
-	private String specialization;	//optional
+	private String department;	//optional
 	private int status;
 		
 	public Employee(){}
 
 	public Employee(Date joiningDate, Name name, String birthdate, String gender, String emailID, long mobileNo,
 			long adharNo, String country, String state, String city, Address address, String role, String qualification,
-			String specialization) {
+			String department) {
 		super();
 		this.joiningDate = joiningDate;
 		this.name = name;
@@ -71,7 +71,7 @@ public class Employee
 		this.address = address;
 		this.role = role;
 		this.qualification = qualification;
-		this.specialization = specialization;
+		this.department = department;
 	}
 
 	public void setJoiningDate(Date joiningDate) {
@@ -135,8 +135,8 @@ public class Employee
 		return qualification;
 	}
 
-	public String getSpecialization() {
-		return specialization;
+	public String getDepartment() {
+		return department;
 	}
 	public int getStatus() {
 		return status;
@@ -150,7 +150,7 @@ public class Employee
 		return "Employee [joiningDate=" + joiningDate + ", eid=" + eid + ", name=" + name + ", birthdate=" + birthdate
 				+ ", gender=" + gender + ", emailID=" + emailID + ", mobileNo=" + mobileNo + ", adharNo=" + adharNo
 				+ ", country=" + country + ", state=" + state + ", city=" + city + ", address=" + address + ", role="
-				+ role + ", qualification=" + qualification + ", specialization=" + specialization + "]";
+				+ role + ", qualification=" + qualification + ", department=" + department + "]";
 	}
 
 	
