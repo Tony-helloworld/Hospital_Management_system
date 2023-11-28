@@ -86,10 +86,19 @@
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search Employee
         </a>
         <a href="allEmployeesView.html">
-          <span >&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;All Employees</span>
+          <span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Employees</span>
         </a>
         <a href="allRoomsView.html">
           <span class="text-warning">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;All Rooms</span>
+        </a>
+        <a href="ICUInfo2.html">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ICU Info
+        </a>
+        <a href="OperationRoomInfo2.html">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info
+        </a>
+        <a href="PharmacyInfo2.html">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pharmacy Info
         </a>
         <%} %>
       </div>
@@ -98,7 +107,7 @@
     <div class="col-sm-12">
       <!-- display window -->
       <div class="main"><br/><br/>
-        <h1>All Employees</h1><br/>
+        <h1>All Rooms</h1><br/>
         <table class="table table-striped table-bordered">
           <%@page import="com.project.entity.Employee, java.util.List" %>
           <%@ page import="com.project.entity.Room" %>

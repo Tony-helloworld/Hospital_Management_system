@@ -31,7 +31,7 @@ public class ORD {
     public void  setPatientID( String receptionistID){this.patientID =patientID;}
     public String getReceptionistID(){return receptionistID;}
     public String getPatientID(){return patientID;}
-
+    public long plus(){return id+1;}
     @Override
     public String toString() {
         return "ROOM [ICU=" + receptionistID + ", OperationRoom=" + patientID + "]";
@@ -45,4 +45,5 @@ public class ORD {
     public Long getId() {
         return id;
     }
+
 }

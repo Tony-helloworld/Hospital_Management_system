@@ -3,6 +3,8 @@ package com.project.dao.receptionist;
 
 import com.project.dao.LoginDao;
 import com.project.dao.RoomDao;
+import com.project.entity.ICUD;
+import com.project.entity.ORD;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Component
 public class ORDDao {
@@ -32,7 +35,7 @@ public class ORDDao {
             System.out.println(ReceptionistID);
             long a = dao.getUsed("OperationRoom");
             System.out.println(a);
-            Query q = session.createQuery("update ICUD set patientID= :u, receptionistID = :p where id = :s");
+            Query q = session.createQuery("update ORD set patientID= :u, receptionistID = :p where id = :s");
             q.setParameter("u", PID);
             q.setParameter("p", ReceptionistID);
             q.setParameter("s", a);
@@ -41,25 +44,6 @@ public class ORDDao {
             System.out.println(res);
             System.out.println(a);
             return true;
-//
-//
-//            Room temp= (Room) q.uniqueResult();
-//            System.out.println(temp);
-//
-//            int u = temp.getUsed()+1;
-//            int max = temp.getMaxRoom();
-//            if(u<=max){
-//                Query q1=session.createQuery("update Room set used= :u where name = :p ");
-//                q1.setParameter("p", name);
-//                q1.setParameter("u", u);
-//                int res= q1.executeUpdate();
-//                infoLog.logActivities("Add ICU="+u);
-//                return true;
-//            }
-//            else {
-//                return false;
-//            }
-
         }
         catch(Exception e)
         {
@@ -68,5 +52,15 @@ public class ORDDao {
             return false;
         }
     }
-
+    @Transactional
+    public List<ORD> get(String PID){
+        Session session= sf.getCurrentSession();
+        Query q = session.createQuery("FROM ORD where receptionistID = :u");
+        q.setParameter("u", PID);
+        List<ORD> l1=(List<ORD>) q.list();
+//        Query q = session.createQuery("from Room where name = :p");
+//        q.setParameter("p", name);
+//        Room temp= (Room) q.uniqueResult();
+        return  l1;
+    }
 }

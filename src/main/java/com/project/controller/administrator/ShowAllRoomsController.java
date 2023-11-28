@@ -47,14 +47,14 @@ public class ShowAllRoomsController {
     @RequestMapping("/allRoomsView.html")
     public ModelAndView view()
     {
-        System.out.println("---------------------0");
+//        System.out.println("---------------------0");
         ModelAndView mv= new ModelAndView();
         mv.setViewName("administrator/AllRoomsView");
-        System.out.println("---------------------1");
+//        System.out.println("---------------------1");
         dao1.getAllRooms();
-        System.out.println("---------------------2");
+//        System.out.println("---------------------2");
         mv.addObject("Rooms", dao1.getAllRooms());
-        System.out.println("---------------------3");
+//        System.out.println("---------------------3");
 
         return mv;
     }

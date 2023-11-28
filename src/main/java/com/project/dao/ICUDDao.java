@@ -1,6 +1,9 @@
 package com.project.dao;
 
 
+import com.project.entity.Employee;
+import com.project.entity.ICUD;
+import com.project.entity.Patient;
 import com.project.entity.Room;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -68,5 +71,24 @@ public class ICUDDao {
             return false;
         }
     }
+    @Transactional
+    public  List<ICUD>  get(String PID){
+        Session session= sf.getCurrentSession();
+        Query q = session.createQuery("FROM ICUD where receptionistID = :u");
+        q.setParameter("u", PID);
+        List<ICUD> l1=(List<ICUD>) q.list();
+//        Query q = session.createQuery("from Room where name = :p");
+//        q.setParameter("p", name);
+//        Room temp= (Room) q.uniqueResult();
+        return  l1;
+    }
+//    @Transactional
+//    public  String getName(String PID){
+//        Session session= sf.getCurrentSession();
+//        Query q = session.createQuery("from Patient where pid = :p");
+//        q.setParameter("p", PID);
+//        Patient temp= (Patient) q.uniqueResult();
+//        return  temp.getName().toString();
+//    }
 
 }
