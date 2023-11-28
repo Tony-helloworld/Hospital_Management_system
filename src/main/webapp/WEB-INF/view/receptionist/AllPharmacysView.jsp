@@ -78,6 +78,25 @@
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info
         </a>
         <%} %>
+        <% if(l.getRole().equals("receptionist")){ %>
+        <a href="ICUInfo.html">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ICU Info
+        </a>
+        <a href="OperationRoomInfo.html">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OperationRoom Info
+        </a>
+        <a href="PharmacyInfo.html">
+          <span class="text-warning">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;Pharmacy Info</span>
+        </a>
+
+        <a href="prescriptionQueueView.html">
+          <% String count=""+request.getAttribute("prescriptionsCount"); %>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prescriptions
+          <span class="badge badge-pill badge-danger"><%=count %></span>
+        </a>
+        <%} %>
+
+
         <% if(l.getRole().equals("administrator")){ %>
         <a href="addEmployeeView.html">
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Employee
@@ -104,6 +123,7 @@
         <%} %>
       </div>
     </div>
+
 
     <div class="col-sm-12">
       <!-- display window -->
@@ -133,10 +153,10 @@
             <td><%= pharmacy.getDrugNumber() %>&nbsp;</td>
 <%--            <td><%= room.getMaxRoom() %></td>--%>
             <td>
-              <form action="changePharmacy.html" method="post">
-                <input type="text" name="id" value="<%= pharmacy.getId()%>" hidden="">
+              <form action="usedPharmacy.html" method="post">
+                <input type="text" name="name" value="<%= pharmacy.getName()%>" hidden="">
                 <div style="text-align: center;">
-                  <input type="submit" class="btn btn-info" value="Change">
+                  <input type="submit" class="btn btn-info" value="Used">
                 </div>
               </form>
             </td>

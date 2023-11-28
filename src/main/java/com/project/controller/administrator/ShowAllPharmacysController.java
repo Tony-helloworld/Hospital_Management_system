@@ -22,6 +22,7 @@ public class ShowAllPharmacysController {
     EmployeeDetailsDao dao2;
     @Autowired
     PatientPrescriptionDao dao;
+
     @Autowired
     LoginDao infoLog;
 
@@ -34,6 +35,7 @@ public class ShowAllPharmacysController {
 //        System.out.println("---------------------1");
 //        dao1.getAllPharmacys();
 //        System.out.println("---------------------2");
+        mv.addObject("prescriptionsCount", dao.prescriptionPrintCount());
         mv.addObject("Pharmacys", dao1.getAllPharmacys());
 //        System.out.println("---------------------3");
 
@@ -109,9 +111,39 @@ public class ShowAllPharmacysController {
 //        dao1.getAllPharmacys();
 //        System.out.println("---------------------2");
         mv.addObject("Pharmacys", dao1.getAllPharmacys());
+        mv.addObject("prescriptionsCount", dao.prescriptionPrintCount());
+
 //        System.out.println("---------------------3");
 
         return mv;
+    }
+    @RequestMapping("/usedPharmacy.html")
+    public ModelAndView usedview(@RequestParam("name")String name)
+    {
+    try {
+
+        ModelAndView mv= new ModelAndView();
+        boolean b = dao1.MinusPharmacy(name);
+        if (!b){throw new Exception();}
+        mv.setViewName("receptionist/AllPharmacysView");
+//        System.out.println("---------------------1");
+//        dao1.getAllPharmacys();
+//        System.out.println("---------------------2");
+        mv.addObject("Pharmacys", dao1.getAllPharmacys());
+        mv.addObject("prescriptionsCount", dao.prescriptionPrintCount());
+        return mv;
+
+//        System.out.println("---------------------3");
+    }
+    catch(Exception e)
+    {
+        infoLog.logActivities("in EditEmployeeController-edit: "+e);
+        ModelAndView mv= new ModelAndView();
+        mv.setViewName("failure");
+        mv.addObject("error","Drug number is less then 0");
+        return mv;
+    }
+
     }
 
 }
