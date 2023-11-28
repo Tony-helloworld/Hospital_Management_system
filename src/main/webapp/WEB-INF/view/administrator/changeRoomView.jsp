@@ -60,6 +60,8 @@
             <!-- sidenavbar -->
             <%@page import="com.project.entity.Login" %>
             <%@page import="org.springframework.web.servlet.ModelAndView" %>
+            <%@ page import="com.project.entity.Room" %>
+            <%@ page import="java.util.List" %>
             <% Login l=(Login)session.getAttribute("userInfo");	 %>
             <div class="sidenav">
                 <a><br/><br/>
@@ -73,65 +75,59 @@
                     </div>
                 </a><br/>
 
-                <% if(l.getRole().equals("patient")){ %>
-                <a href="patientInfo.html">
+                <% if(!l.getId().equals("EMP100")){ %>
+                <a href="personalInfo.html">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Personal Info
                 </a>
-                <%--				<a href="selectDoctor.html">--%>
-                <%--					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select Doctor--%>
-                <%--				</a>--%>
-                <a href="prescriptionView.html">
-                    <% String count=""+request.getAttribute("prescriptionsCount"); %>
-                    <span class="text-warning">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;Prescriptions</span>
-                    <span class="badge badge-pill badge-danger"><%=count %></span>
+                <%} %>
+                <% if(l.getRole().equals("administrator")){ %>
+                <a href="addEmployeeView.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Employee
+                </a>
+                <a href="searchEmployeeView.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search Employee
+                </a>
+                <a href="allEmployeesView.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Employees
+                </a>
+                <a href="allRoomsView.html">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Rooms
                 </a>
                 <%} %>
-
             </div>
         </div>
 
         <div class="col-sm-12">
             <!-- display window -->
             <div class="main"><br/><br/>
-                <h1>Patient Prescriptions</h1><br/>
-                <%@page import="com.project.entity._OpdRecord, java.util.List" %>
-                <table class="table table-striped table-bordered">
-                    <thead>
-                    <tr>
-                        <td>Patient Id</td>
-                        <td>Patient Name</td>
-                        <td>Prescription</td>
-<%--                        <td>Action</td>--%>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <%
-                        List<String[]> prescriptionList=(List<String[]>) request.getAttribute("prescriptionList");
-                        for(String[] str: prescriptionList)
-                        {
-                    %>
-                    <tr>
-                        <td><%= str[0] %></td>
-                        <td><%= str[1] %>
+                <h1>Edit Room Details</h1><br/>
 
-                        <td> <span  style="text-align:center;">
-		      		<form action="1printPrescription.html" method="post">
-		      			<input type="text" name="pid" value="<%= str[0] %>" hidden="">
-				   		<input type="text" name="opdid" value="<%= str[2] %>" hidden="">
-				    	<button type="submit" class="btn btn-primary"> Print </button>
-				    </form></span>
-                        </td>
+                <form action="submitRoom.html" method="post" >
+                    <%-- 	fields with disabled attribute are not submitted but readonly r submitted --%>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="Name" value="${ room.name }" readonly="readonly">
+                        </div>
 
-<%--                        <td><span  style="text-align:center;">--%>
-<%--		      		<form action="prescriptionPrintDone.html" method="post">--%>
-<%--		      			<input type="text" name="pid" value="<%= str[0] %>" hidden="">--%>
-<%--		      			<button type="submit" class="btn btn-danger"> Cancel </button>--%>
-<%--		      		</form></span>--%>
-<%--                        </td>--%>
-                    </tr>
-                    <%}%>
-                    </tbody>
+                        <div class="form-group">
+                        <label>Used</label>
+                        <input type="text" class="form-control" id="Used" name="Used" value="${ room.used }"
+                               required="required" autocomplete="off" maxlength="20">
+                        </div>
 
+
+                        <div class="form-group">
+                            <label>Max</label>
+                            <input type="text" class="form-control" id="Max" name="Max" value="${  room.maxRoom }"
+                                   required="required" autocomplete="off" maxlength="20">
+                        </div>
+
+
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-primary">Update Details</button>
+                        </div>
+
+                </form>
             </div>
         </div>
 

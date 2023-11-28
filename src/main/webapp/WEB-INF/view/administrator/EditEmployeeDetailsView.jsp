@@ -88,6 +88,9 @@ body {
 				<a href="allEmployeesView.html">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Employees
 				</a>
+				<a href="allRoomsView.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Rooms
+				</a>
 		<%} %>
 			</div>
 	    </div>

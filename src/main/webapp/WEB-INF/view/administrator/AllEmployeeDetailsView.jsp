@@ -88,6 +88,9 @@ body {
 				<a href="allEmployeesView.html">
 					<span class="text-warning">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;All Employees</span>
 				</a>
+				<a href="allRoomsView.html">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All Rooms
+				</a>
 		<%} %>
 			</div>
 	    </div>

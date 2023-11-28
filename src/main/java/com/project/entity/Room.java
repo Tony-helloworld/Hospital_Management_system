@@ -10,67 +10,40 @@ import javax.persistence.TemporalType;
 
 import java.util.Date;
 @Entity
-
 public class Room {
-    private int iCU;
-    private int maxICU;
-
-    private int operationRoom;
-
-    private int maxOperationRoom;
+//    private int iCU;
+//    private int maxICU;
+//
+//    private int operationRoom;
+//
+//    private int maxOperationRoom;
 
     private Long id;
+    private int maxRoom;
+    private int used;
+    private String name;
 
     public Room(){
-        iCU=10;
-        operationRoom=8;
     }
 
-    public Room(int ICU, int operationRoom)
+    public Room(String name ,int used, int maxRoom)
     {
         super();
-        this.iCU = ICU;
-        this.operationRoom= operationRoom;
+        this.name = name;
+        this.used = used;
+        this.maxRoom =maxRoom;
     }
+    public void  setUsed(int a){used=a;}
+    public void  setMaxRoom(int a){maxRoom=a;}
+    public void  setName(String a){name =a;}
 
-
-
-
-    public void  setiCU(int a){iCU=a;}
-    public void  setoperationRoom(int a){operationRoom=a;}
-    public void  setmaxICU(int a){maxICU=a;}
-    public void  setmaxOperationRoom(int a){maxOperationRoom=a;}
-    public int getiCU() {
-        return iCU;
-    }
-    public int getoperationRoom() {
-        return operationRoom;
-    }
-
-
-
-
-    public int  getmaxICU(){ return maxICU; }
-
-
-
-
-
-    public int  getmaxOperationRoom(){return maxOperationRoom;}
-
-
-
-
+    public int getUsed(){return used;}
+    public int getMaxRoom(){return maxRoom;}
+    public String getName(){return name;}
     @Override
     public String toString() {
-        return "ROOM [ICU=" + iCU + ", OperationRoom=" + operationRoom + "]";
+        return "ROOM [ICU=" + maxRoom + ", OperationRoom=" + used + "]";
     }
-
-
-
-
-
-
 
     public void setId(Long id) {
         this.id = id;
