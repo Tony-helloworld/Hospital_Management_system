@@ -157,7 +157,7 @@ body {
 					    </div>
 					
 					     <div class="form-group">
-					      <label>Adhar No</label>
+					      <label>Password</label>
 					      <input type="text" class="form-control" id="exampleInputEmail1" name="adharNo" value="${ employee.adharNo }" readonly="readonly"
 						 	required="required" autocomplete="off" minlength="12" maxlength="12">
 					    </div>

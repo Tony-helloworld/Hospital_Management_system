@@ -139,7 +139,7 @@ body {
 				        <td>${ employee.mobileNo }</td>	<!-- getters r used to access values -->
 				     </tr>
 				     <tr>
-				        <td class="font-weight-bold">Adhar number</td>
+				        <td class="font-weight-bold">Password</td>
 				        <td>${ employee.adharNo }</td>	<!-- getters r used to access values -->
 				     </tr>
 				     <tr>

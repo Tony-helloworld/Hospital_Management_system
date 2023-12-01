@@ -206,12 +206,12 @@ body {
 			</div>
 				
 			<div class="card bg-light border-warning mb-3" >
-			  <div class="card-header"><h4>By Aadhar No</h4></div>
+			  <div class="card-header"><h4>By Password</h4></div>
 			  <div class="card-body">
 			    <p class="card-text">
 			    	<form action="searchPatientByAdharNo.html" method="post" >
 						 <div class="form-group">
-						 	<label>Adhar No</label>
+						 	<label>Password</label>
 						 	<input type="text" class="form-control" id="exampleInputEmail1" name="aadharNo" placeholder="12 digit"
 						 	required="required" autocomplete="off" minlegth="12" maxlegth="12">
 						 </div>
