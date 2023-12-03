@@ -81,7 +81,7 @@ body {
 		
 		<% if(l.getRole().equals("doctor")){ %>
 				<a href="opdQueueD.html">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OPD Queue
+					<span class="text-warning">&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;OPD Queue</span>
 				</a>
 				<a href="searchPatientView.html">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search Patient

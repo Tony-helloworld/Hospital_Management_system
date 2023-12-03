@@ -40,7 +40,7 @@
 			<h1><span style="color:grey;">S</span><span style="color:red;">C</span><span style="color:grey;">UT</span> HOSPITAL</h1>
 			</div>
 			<div class="col-sm-7">
-			<p><b>Dr. Sachine Kautikrao Deore</b><br/> MBBS, DNB(Gen. Surgeon), MS, MNAMS, FMAS, FIAGES, FALS, AFIH</p>
+			<p><b>SCUT</b><br/>South China University of China  </p>
 			</div>
 		</div>
 		<hr/>

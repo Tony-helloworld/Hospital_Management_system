@@ -252,7 +252,7 @@ body {
 			    <div class="form-group">
 			      <label>Department</label>
 			      <input type="text" class="form-control" id="exampleInputEmail1" name="department" value="${ employee.department }"
-			        required="required" autocomplete="off" maxlength="50">
+						 readonly="readonly">
 			    </div>
 				<div  style="text-align:center;">
 				<button type="submit" class="btn btn-primary">Update Details</button></div>
